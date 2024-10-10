@@ -8,9 +8,9 @@ class BaseBallGameController {
     this.isPlaying = true;
   }
 
-  startGame() {
+  async startGame() {
     this.view.printStartMessage();
-    this.playGame();
+    await this.playGame();
   }
 
   async playGame() {

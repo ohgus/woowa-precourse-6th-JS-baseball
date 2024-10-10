@@ -6,11 +6,11 @@ class App {
   }
 
   async play() {
-    this.controller.startGame();
+    await this.controller.startGame();
   }
 }
 
 export default App;
 
-const app = new App();
-app.play();
+// const app = new App();
+// app.play();
