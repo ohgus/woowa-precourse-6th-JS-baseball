@@ -18,6 +18,21 @@ class BaseBallGameController {
       const userGuess = await this.view.promptUserGuess();
       const result = this.model.checkUserGuess(userGuess);
       this.view.displayResult(result);
+
+      if (result.strike === 3) {
+        await this.checkRestartOrExit();
+      }
+    }
+  }
+
+  async checkRestartOrExit() {
+    const restartOrExit = await this.view.promptRestartOrExit();
+
+    if (Number(restartOrExit) === 1) {
+      this.model = new BaseBallGameModel();
+      await this.playGame();
+    } else {
+      this.isPlaying = false;
     }
   }
 }
