@@ -1,4 +1,4 @@
-import { MissionUtils } from '@woowacourse/mission-utils';
+import { Random } from '@woowacourse/mission-utils';
 
 class BaseBallGameModel {
   constructor() {
@@ -9,7 +9,7 @@ class BaseBallGameModel {
     const targetNumber = [];
 
     while (targetNumber.length < 3) {
-      const number = MissionUtils.Random.pickNumberInRange(1, 9);
+      const number = Random.pickNumberInRange(1, 9);
 
       if (!targetNumber.includes(number)) {
         targetNumber.push(number);
