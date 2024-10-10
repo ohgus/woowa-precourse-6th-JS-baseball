@@ -18,6 +18,25 @@ class BaseBallGameModel {
 
     return targetNumber;
   }
+
+  checkUserGuess(userGuess) {
+    const target = this.targetNumber;
+    let strike = 0;
+    let ball = 0;
+
+    userGuess
+      .split('')
+      .map(Number)
+      .forEach((number, index) => {
+        if (target[index] === number) {
+          strike++;
+        } else if (target.includes(number)) {
+          ball++;
+        }
+      });
+
+    return { strike, ball };
+  }
 }
 
 export default BaseBallGameModel;
