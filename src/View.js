@@ -21,11 +21,15 @@ class BaseBallGameView {
     } else if (strike === 0 && ball === 0) {
       Console.print('낫싱');
     } else {
-      let hint = '';
-      if (ball > 0) hint += `${ball}볼 `;
-      if (strike > 0) hint += `${strike}스트라이크`;
-      Console.print(hint.trim());
+      Console.print(this.generateHint(ball, strike));
     }
+  }
+
+  generateHint(ball, strike) {
+    let hint = '';
+    if (ball > 0) hint += `${ball}볼 `;
+    if (strike > 0) hint += `${strike}스트라이크`;
+    return hint.trim();
   }
 
   async promptRestartOrExit() {
