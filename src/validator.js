@@ -20,3 +20,9 @@ export const validateUserGuess = (userGuess) => {
     throw new Error('1~9 사이의 숫자만 입력할 수 있습니다.');
   }
 };
+
+export const validateRestartOrExit = (userInput) => {
+  if (userInput !== '1' && userInput !== '2') {
+    throw new Error('1 또는 2만 입력할 수 있습니다.');
+  }
+};
