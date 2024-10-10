@@ -1,5 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
-import { validateUserGuess } from './validator.js';
+import { validateUserGuess, validateRestartOrExit } from './validator.js';
 
 class BaseBallGameView {
   async promptUserGuess() {
@@ -22,6 +22,14 @@ class BaseBallGameView {
       if (strike > 0) hint += `${strike}스트라이크`;
       Console.print(hint.trim());
     }
+  }
+
+  async promptRestartOrExit() {
+    const userInput = await Console.readLineAsync(
+      '게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.'
+    );
+    validateRestartOrExit(userInput);
+    return userInput;
   }
 }
 
