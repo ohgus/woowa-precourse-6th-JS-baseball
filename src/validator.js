@@ -1,24 +1,29 @@
-const isCorrectLength = (userGuess) => {
+export const isCorrectLength = (userGuess) => {
   if (userGuess.length !== 3) {
     throw new Error('[ERROR] 숫자는 3자리여야 합니다.');
   }
 };
 
-const isAllNumbers = (userGuessArray) => {
+export const isAllNumbers = (userGuessArray) => {
   const isAllNumbers = userGuessArray.every((char) => !isNaN(char));
   if (!isAllNumbers) {
     throw new Error('[ERROR] 숫자만 입력할 수 있습니다.');
   }
 };
 
-const isAllUnique = (userGuessArray) => {
+export const isAllUnique = (userGuessArray) => {
   if (new Set(userGuessArray).size !== userGuessArray.length) {
     throw new Error('[ERROR] 중복되지 않는 숫자만 입력할 수 있습니다.');
   }
 };
 
-const isAllInRange = (userGuessArray) => {
-  if (!userGuessArray.every((char) => char >= 1 && char <= 9)) {
+export const isAllInRange = (userGuessArray) => {
+  if (
+    !userGuessArray.every((char) => {
+      const num = Number(char);
+      return num >= 1 && num <= 9;
+    })
+  ) {
     throw new Error('[ERROR] 1~9 사이의 숫자만 입력할 수 있습니다.');
   }
 };
