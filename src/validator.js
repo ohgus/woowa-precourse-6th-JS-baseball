@@ -5,10 +5,11 @@ export const isCorrectLength = (userGuess) => {
 };
 
 export const isAllNumbers = (userGuessArray) => {
-  const isAllNumbers = userGuessArray.every((char) => !isNaN(char));
-  if (!isAllNumbers) {
-    throw new Error('[ERROR] 숫자만 입력할 수 있습니다.');
-  }
+  userGuessArray.forEach((char) => {
+    if (!/^\d$/.test(char)) {
+      throw new Error('[ERROR] 숫자만 입력할 수 있습니다.');
+    }
+  });
 };
 
 export const isAllUnique = (userGuessArray) => {
